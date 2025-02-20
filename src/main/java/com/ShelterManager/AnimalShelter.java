@@ -67,6 +67,21 @@ public class AnimalShelter {
         }
     }
 
+    /**
+     * Dequeues and returns the oldest dog from the shelter.
+     *
+     * @return The oldest Dog, or null if no dogs exist.
+     */
+    public Dog dequeueDog() {
+        return dogQueue.poll();
+    }
 
-
+    /**
+     * Dequeues and returns the oldest cat from the shelter.
+     *
+     * @return The oldest Cat, or null if no cats exist.
+     */
+    public Cat dequeueCat() {
+        return catQueue.poll();
+    }
 }
