@@ -43,6 +43,30 @@ public class AnimalShelter {
         }
     }
 
+    /**
+     * Dequeues and returns the oldest animal from the shelter.
+     *
+     * @return The oldest Animal, or null if no animals exist.
+     */
+    public Animal dequeueAny() {
+        if (dogQueue.isEmpty() && catQueue.isEmpty()) {
+            return null;
+        } else if (dogQueue.isEmpty()) {
+            return dequeueCat();
+        } else if (catQueue.isEmpty()) {
+            return dequeueDog();
+        }
+
+        Dog oldestDog = dogQueue.peek();
+        Cat oldestCat = catQueue.peek();
+
+        if (oldestDog.isOlderThan(oldestCat)) {
+            return dequeueDog();
+        } else {
+            return dequeueCat();
+        }
+    }
+
 
 
 }
